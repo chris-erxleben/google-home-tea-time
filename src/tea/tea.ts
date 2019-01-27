@@ -12,25 +12,11 @@ tea.use(
 tea.post('/tea', (req: any, res: any) => {
     if (req.body.reesult && req.body.result.parameters && req.body.result.parameters.text) {
         return res.json({
-            fulfillmentMessages: [
-                {
-                    simpleResponses: [{
-                        displayText: 'Great job, it worked!',
-                        textToSpeech: 'Great job, it worked!',
-                    }],
-                }
-            ],
+            fulfillmentText: 'It worked, great job!',
         });
     } else {
         return res.json({
-            fulfillmentMessages: [
-                {
-                    simpleResponses: [{
-                        displayText: 'Uh oh, something went wrong. Try again.',
-                        textToSpeech: 'Uh oh, something went wrong. Try again.',
-                    }],
-                }
-            ],
+            fulfillmentText: 'Uh, oh, something went wrong. Try again.',
         });
     }
 });
