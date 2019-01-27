@@ -16,8 +16,8 @@ app.use(
 
 // Will re-route all requests to their intended route
 app.post('/', (req: any, res: any, next: any) => {
-    if (req.body.result && req.body.result.parameters && req.body.result.parameters.app) {
-        req.url += req.body.result.parameters.app;
+    if (req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.app) {
+        req.url += req.body.queryResult.parameters.app;
         next('route');
     } else {
         return res.json({ fulfillmentText: messages.badRequest });
