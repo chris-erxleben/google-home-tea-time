@@ -21,6 +21,14 @@ export enum BrewingStyles {
     GongFuCha = 'gong fu cha',
 }
 
+export function attributesToLowerCase(obj: { [key: string]: any }, attrs: string[]): void {
+    attrs.forEach((attr: string) => {
+        if (obj.hasOwnProperty(attr) && typeof obj[attr] === 'string') {
+            obj[attr] = obj[attr].toLowerCase();
+        }
+    });
+}
+
 /* tslint:disable:max-line-length */
 export const messages = {
     badRequest: 'On, no. I seem to have ran into a problem while trying to handle that request.',

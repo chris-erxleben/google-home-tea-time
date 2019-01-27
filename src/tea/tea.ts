@@ -3,7 +3,7 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 
-import { BrewingStyles, messages, TeaSubtypes, TeaTypes } from '../shared';
+import { attributesToLowerCase, BrewingStyles, messages, TeaSubtypes, TeaTypes } from '../shared';
 
 const tea = express();
 
@@ -11,6 +11,7 @@ tea.use(bodyParser.urlencoded({ extended: true }), bodyParser.json());
 
 tea.post('/tea', (req: any, res: any) => {
   if (req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.teaType) {
+    attributesToLowerCase(req.body.queryResult.parameters, ['teaType', 'brewingStyle', 'teaSubtype']);
     if (
       req.body.queryResult.parameters.brewingStyle &&
       !Object.values(BrewingStyles).includes(req.body.queryResult.parameters.brewingStyle)
