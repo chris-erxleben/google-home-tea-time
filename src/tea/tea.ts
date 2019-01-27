@@ -10,17 +10,23 @@ tea.use(
 );
 
 tea.post('/tea', (req: any, res: any) => {
-    if (req.body.result && req.body.result.parameters && req.body.result.parameters.text) {
+    if (req.body.reesult && req.body.result.parameters && req.body.result.parameters.text) {
         return res.json({
-            displayText: 'It worked!',
-            source: 'google-home-webhook-tea',
-            speech: 'It worked',
+            fulfillmentMessages: {
+                simpleResponses: [{
+                    textToSpeech: 'Great job, it worked!',
+                    displayText: 'Great job, it worked!',
+                }],
+            },
         });
     } else {
         return res.json({
-            displayText: 'Uh oh, something went wrong! Try again.',
-            source: 'google-home-webhook-tea',
-            speech: 'Uh oh, something went wrong. Try again.',
+            fulfillmentMessages: {
+                simpleResponses: [{
+                    textToSpeech: 'Uh oh, something went wrong. Try again.',
+                    displayText: 'Uh oh, something went wrong. Try again.',
+                }],
+            },
         });
     }
 });
