@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
-    "postbuild": "run-s clean lint tsc",
-    "start:watch": "nodemon --watch src -e ts --exec run-s postbuild start",
+    "heroku-postbuild": "run-s clean lint tsc",
+    "start:watch": "nodemon --watch src -e ts --exec run-s heroku-postbuild start",
     "start": "node .",
     "test:watch": "jest --watch",
     "test": "jest",
