@@ -14,8 +14,8 @@ tea.post('/tea', (req: any, res: any) => {
         return res.json({
             fulfillmentMessages: {
                 simpleResponses: [{
-                    textToSpeech: 'Great job, it worked!',
                     displayText: 'Great job, it worked!',
+                    textToSpeech: 'Great job, it worked!',
                 }],
             },
         });
@@ -23,8 +23,8 @@ tea.post('/tea', (req: any, res: any) => {
         return res.json({
             fulfillmentMessages: {
                 simpleResponses: [{
-                    textToSpeech: 'Uh oh, something went wrong. Try again.',
                     displayText: 'Uh oh, something went wrong. Try again.',
+                    textToSpeech: 'Uh oh, something went wrong. Try again.',
                 }],
             },
         });
